@@ -4,3 +4,4 @@ requests
 PyMuPDF
 python-docx
 gunicorn
+python-dotenv

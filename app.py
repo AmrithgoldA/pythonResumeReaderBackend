@@ -4,8 +4,11 @@ import tempfile
 import os
 import requests
 import json
-from config import DEEPSEEK_API_KEY
+from dotenv import load_dotenv
 from utils.extractors import extract_pdf_text, extract_docx_text
+
+
+DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY")
 
 app = Flask(__name__)
 CORS(app)
@@ -88,5 +91,6 @@ Text:
         print(f"🧹 Temporary file deleted: {file_path}")
 
 if __name__ == "__main__":
-    print("🚀 Starting Flask server on http://localhost:5000")
-    app.run(port=5000, debug=True)
+    port = int(os.environ.get("PORT") or 5000)
+    print(f"🚀 Starting Flask server on port {port}")
+    app.run(host="0.0.0.0", port=port, debug=True)
