@@ -7,6 +7,7 @@ import json
 from dotenv import load_dotenv
 from utils.extractors import extract_pdf_text, extract_docx_text
 
+load_dotenv()
 
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY")
 
@@ -46,15 +47,16 @@ def upload_resume():
 
         print("✅ Text extraction complete")
 
-        prompt = f"""Extract the following personal details from this resume text:
-- Full Name
-- Email
-- Phone number
-- Address (if available)
-- LinkedIn URL (if any)
-
-Text:
-\"\"\"{text}\"\"\""""
+        prompt = f"""
+Extract the following personal details from this resume in strict JSON format only with the following keys:
+- "Full Name"
+- "Email"
+- "Phone number"
+- "Address"
+- "LinkedIn URL"
+Only return a valid JSON object. Do not include markdown, comments or extra explanations. Resume text:
+\"\"\"{text}\"\"\"
+"""
 
         print("🚀 Sending request to DeepSeek via OpenRouter")
 
@@ -75,9 +77,18 @@ Text:
 
         if res.status_code == 200:
             print("✅ DeepSeek response received")
-            data = res.json()["choices"][0]["message"]["content"]
+            content = res.json()["choices"][0]["message"]["content"]
+            clean_json = content.strip().strip("`").strip()
+            if clean_json.startswith("json"):
+                clean_json = clean_json[4:].strip()
+            try:
+                parsed_data = json.loads(clean_json)
+            except json.JSONDecodeError:
+                print("❌ Invalid JSON after cleaning")
+                return jsonify({"error": "Invalid JSON returned", "raw": content}), 500
+
             return jsonify({
-                "data": data,
+                "data": parsed_data,
                 "extracted_text": text
             })
         else:
