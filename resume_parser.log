@@ -1,0 +1,66 @@
+2025-07-02 17:14:32,008 - __main__ - INFO - Starting Flask server on port 5000
+2025-07-02 17:14:36,572 - __main__ - INFO - [e50b7a45] Upload request received
+2025-07-02 17:14:36,575 - __main__ - INFO - [e50b7a45] Received file: Amrith Gold resume (1).pdf
+2025-07-02 17:14:36,579 - __main__ - INFO - [e50b7a45] File saved to temporary location: C:\Users\aastr\AppData\Local\Temp\tmpo17azp7s
+2025-07-02 17:14:36,581 - __main__ - INFO - [e50b7a45] Extracting text from PDF
+2025-07-02 17:14:36,627 - __main__ - INFO - [e50b7a45] Text extraction completed in 0.05s
+2025-07-02 17:14:36,627 - __main__ - INFO - [e50b7a45] Starting DeepSeek personal data extraction
+2025-07-02 17:14:36,627 - __main__ - INFO - Attempt 1: Using API Key Index: 0
+2025-07-02 17:14:37,748 - __main__ - INFO - API call completed in 1.12s
+2025-07-02 17:14:37,748 - __main__ - WARNING - API key 0 exhausted
+2025-07-02 17:14:37,749 - __main__ - INFO - Rotated to API key index: 1
+2025-07-02 17:14:37,749 - __main__ - INFO - Attempt 2: Using API Key Index: 1
+2025-07-02 17:14:38,530 - __main__ - INFO - API call completed in 0.78s
+2025-07-02 17:14:38,531 - __main__ - WARNING - API key 1 exhausted
+2025-07-02 17:14:38,531 - __main__ - INFO - Rotated to API key index: 2
+2025-07-02 17:14:38,531 - __main__ - INFO - Attempt 3: Using API Key Index: 2
+2025-07-02 17:14:39,694 - __main__ - INFO - API call completed in 1.16s
+2025-07-02 17:14:39,694 - __main__ - WARNING - API key 2 exhausted
+2025-07-02 17:14:39,694 - __main__ - INFO - Rotated to API key index: 3
+2025-07-02 17:14:39,694 - __main__ - INFO - Attempt 4: Using API Key Index: 3
+2025-07-02 17:14:43,417 - __main__ - INFO - API call completed in 3.72s
+2025-07-02 17:14:43,418 - __main__ - INFO - [e50b7a45] Data extraction completed in 6.79s
+2025-07-02 17:14:43,418 - __main__ - INFO - [e50b7a45] Starting DeepSeek improvement suggestion
+2025-07-02 17:14:43,418 - __main__ - INFO - Attempt 1: Using API Key Index: 3
+2025-07-02 17:15:38,292 - __main__ - INFO - API call completed in 54.87s
+2025-07-02 17:15:38,292 - __main__ - INFO - [e50b7a45] Improvement suggestion completed in 54.87s
+2025-07-02 17:15:38,293 - __main__ - ERROR - [e50b7a45] Unexpected error: name 'start_time' is not defined
+Traceback (most recent call last):
+  File "D:\projects\pdfReader\backend\app.py", line 268, in upload_resume
+    total_time = time.time() - start_time
+                               ^^^^^^^^^^
+NameError: name 'start_time' is not defined
+2025-07-02 17:15:38,295 - __main__ - INFO - [e50b7a45] Temporary file deleted: C:\Users\aastr\AppData\Local\Temp\tmpo17azp7s
+2025-07-02 17:15:38,297 - werkzeug - INFO - 127.0.0.1 - - [02/Jul/2025 17:15:38] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-07-02 17:19:06,032 - __main__ - INFO - [731a2c95] Upload request received
+2025-07-02 17:19:06,036 - __main__ - INFO - [731a2c95] Received file: Amrith Gold resume (1).pdf
+2025-07-02 17:19:06,037 - __main__ - INFO - [731a2c95] File saved to temporary location: C:\Users\aastr\AppData\Local\Temp\tmpzax6m469
+2025-07-02 17:19:06,038 - __main__ - INFO - [731a2c95] Extracting text from PDF
+2025-07-02 17:19:06,097 - __main__ - INFO - [731a2c95] Text extraction completed in 0.06s
+2025-07-02 17:19:06,098 - __main__ - INFO - [731a2c95] Starting DeepSeek personal data extraction
+2025-07-02 17:19:06,098 - __main__ - INFO - Attempt 1: Using API Key Index: 3
+2025-07-02 17:19:19,401 - __main__ - INFO - API call completed in 13.30s
+2025-07-02 17:19:19,402 - __main__ - INFO - [731a2c95] Data extraction completed in 13.30s
+2025-07-02 17:19:19,404 - __main__ - INFO - [731a2c95] Starting DeepSeek improvement suggestion
+2025-07-02 17:19:19,404 - __main__ - INFO - Attempt 1: Using API Key Index: 3
+2025-07-02 17:20:17,031 - __main__ - INFO - API call completed in 57.63s
+2025-07-02 17:20:17,032 - __main__ - INFO - [731a2c95] Improvement suggestion completed in 57.63s
+2025-07-02 17:20:17,032 - __main__ - ERROR - [731a2c95] Unexpected error: name 'start_time' is not defined
+Traceback (most recent call last):
+  File "D:\projects\pdfReader\backend\app.py", line 268, in upload_resume
+    "resume_suggestions": resume_suggestions
+                           ^^^^^^^^^^
+NameError: name 'start_time' is not defined
+2025-07-02 17:20:17,069 - __main__ - INFO - [731a2c95] Temporary file deleted: C:\Users\aastr\AppData\Local\Temp\tmpzax6m469
+2025-07-02 17:20:17,070 - werkzeug - INFO - 127.0.0.1 - - [02/Jul/2025 17:20:17] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2025-07-02 17:20:49,093 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.40:5000
+2025-07-02 17:20:49,093 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-02 17:21:13,767 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.40:5000
+2025-07-02 17:21:13,767 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-02 17:22:39,040 - werkzeug - INFO - 127.0.0.1 - - [02/Jul/2025 17:22:39] "POST /upload HTTP/1.1" 200 -
